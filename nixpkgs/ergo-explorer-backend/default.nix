@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
     makeWrapper ${jre}/bin/java $out/bin/ergo-chain-grabber --add-flags "-jar $out/share/java/ChainGrabber-assembly-${version}.jar"
     makeWrapper ${jre}/bin/java $out/bin/ergo-explorer-api --add-flags "-jar $out/share/java/ExplorerApi-assembly-${version}.jar"
     makeWrapper ${jre}/bin/java $out/bin/ergo-utx-broadcaster --add-flags "-jar $out/share/java/UtxBroadcaster-assembly-${version}.jar"
-    makeWrapper ${jre}/bin/java $out/bin/ergo-utx-watcher --add-flags "-jar $out/share/java/UtxWatcher-assembly-${version}.jar"
+    makeWrapper ${jre}/bin/java $out/bin/ergo-utx-tracker --add-flags "-jar $out/share/java/UtxTracker-assembly-${version}.jar"
   '';
 
 }
