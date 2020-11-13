@@ -1,7 +1,7 @@
 { stdenv, fetchurl, makeWrapper, jre }:
 
 stdenv.mkDerivation rec {
-  pname = "ergo";
+  pname = "ergo-node";
   version = "3.3.6";
 
   src = fetchurl {
