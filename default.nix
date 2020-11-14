@@ -11,5 +11,6 @@ rec {
 
   ergo-node = callPackage ./nixpkgs/ergo-node {};
   ergo-explorer-backend = callPackage ./nixpkgs/ergo-explorer-backend {};
+  ergo-explorer-frontend = callPackage ./nixpkgs/ergo-explorer-frontend {};
 
 }
