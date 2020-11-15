@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
   dontUnpack = true;
 
   installPhase = ''
-    makeWrapper ${jre}/bin/java $out/bin/ergo --add-flags "-jar -Xmx3G -Dlogback.stdout.level=DEBUG $src"
+    makeWrapper ${jre}/bin/java $out/bin/ergo --add-flags "-jar -Dlogback.stdout.level=DEBUG $src"
   '';
 
   meta = with stdenv.lib; {
