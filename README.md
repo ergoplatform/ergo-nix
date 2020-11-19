@@ -87,7 +87,7 @@ let
     repo = "ergo-nix";
     rev = "e51e2e43ad617c26205a84453481d3ac152c8fec";
     sha256 = "1k8fnwcxd90ygfyv3hjc71nqagdz4i2siw6d0k6kcdi0il9mbz5g";
-  }) { inherit pkgs; };
+  }) {};
   
 in {
 
