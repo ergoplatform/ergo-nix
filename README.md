@@ -5,6 +5,12 @@
 
 This repository provides Nix derivations for packages and services of [the Ergo ecosystem](https://ergoplatform.org/en/).
 
+### [Why Nix?](https://nixos.org/guides/nix-pills/why-you-should-give-it-a-try.html)
+
+There are many existing systems for software configuration and most of them are far more user friendly than Nix. However, I feel like Nix is the best available tool to build immutable and pure (as in functional programming) *Infrastructure as a Code*, which is so important in the FinTech world.
+
+The way Nix calculates whether a derivation input has changed is by taking its cryptographic hash. Dependencies are recursive, so this hash is actually a hash of hashes — a powerful concept instantly recognizable to blockchain enthusiasts. If any of the inputs change, so does the result and therefore we end up with a totally different software package.
+
 ## Features
 ### Packages
 
