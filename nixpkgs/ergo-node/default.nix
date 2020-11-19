@@ -17,11 +17,4 @@ stdenv.mkDerivation rec {
     makeWrapper ${jre}/bin/java $out/bin/ergo --add-flags "-jar -Xmx3G -Dlogback.stdout.level=DEBUG $src"
   '';
 
-  meta = with stdenv.lib; {
-    description = "Open protocol that implements modern scientific ideas in the blockchain area";
-    homepage = "https://ergoplatform.org/en/";
-    license = licenses.cc0;
-    platforms = platforms.all;
-    maintainers = with maintainers; [ mmahut ];
-  };
 }
