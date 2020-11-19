@@ -6,8 +6,16 @@
 This repository provides Nix derivations for packages and services of [the Ergo ecosystem](https://ergoplatform.org/en/).
 
 ## Features
+### Packages
 
-
+ * `ergo-node`
+   * provides the Ergo blockchain nodes
+ * `ergo-explorer-backend`
+   * provides Ergo explorer backend tooling (chain-grabber, explorer-api and utx-{watcher,broadcaster})
+ * `ergo-explorer-frontend`
+   * provides the Ergo explorer web interface
+### Services
+  * `services.ergo-node`
 
 ## Installation and setup
 
@@ -25,3 +33,26 @@ trusted-public-keys  = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcD
 ```
 
 If you are using NixOS, you probably know how to add these as your binary caches.
+
+## Usage
+
+You can add it as a channel.
+
+```bash
+$ nix-channel --add https://github.com/mmahut/ergo-nix/archive/master.tar.gz ergo-nix
+$ nix-channel --update
+unpacking channels...
+```
+
+```bash
+$ nix-env -iA ergo-nix.ergo-node
+installing 'ergo-node-3.3.6'
+```
+
+Or you can just use it directly as a Nix path.
+
+```bash
+$ nix-env -iA ergo-node -f https://github.com/mmahut/ergo-nix/archive/master.tar.gz
+unpacking 'https://github.com/mmahut/ergo-nix/archive/master.tar.gz'...
+installing 'ergo-node-3.3.6'
+```
