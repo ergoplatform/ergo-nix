@@ -5,13 +5,21 @@
 
 This repository provides Nix derivations for packages and services of [the Ergo ecosystem](https://ergoplatform.org/en/).
 
+<p align="center">
+  <a href="#key-features">Key Features</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#usage">Usage</a> 
+</p>
+
+
 ### [Why Nix?](https://nixos.org/guides/nix-pills/why-you-should-give-it-a-try.html)
 
 There are many existing systems for software configuration and most of them are far more user friendly than Nix. However, I feel like Nix is the best available tool to build immutable and pure (as in functional programming) *Infrastructure as a Code*, which is so important in the FinTech world.
 
 The way Nix calculates whether a derivation input has changed is by taking its cryptographic hash. Dependencies are recursive, so this hash is actually a hash of hashes — a powerful concept instantly recognizable to blockchain enthusiasts. If any of the inputs change, so does the result and therefore we end up with a totally different software package.
 
-## Features
+## Key Features
+
 ### Packages
 
  * `ergo-node`
@@ -23,7 +31,7 @@ The way Nix calculates whether a derivation input has changed is by taking its c
 ### Services
   * `services.ergo-node`
 
-## Installation and setup
+## Installation
 
 If you are not running NixOS, you need to at least install [Nix](https://nixos.org/download.html)
 
@@ -41,6 +49,8 @@ trusted-public-keys  = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcD
 If you are using NixOS, you probably know how to add these as your binary caches.
 
 ## Usage
+
+### Software Packages
 
 You can add it as a channel.
 
