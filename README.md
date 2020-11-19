@@ -72,3 +72,31 @@ $ nix-env -iA ergo-node -f https://github.com/mmahut/ergo-nix/archive/master.tar
 unpacking 'https://github.com/mmahut/ergo-nix/archive/master.tar.gz'...
 installing 'ergo-node-3.3.6'
 ```
+
+### Software services
+
+It is also possible to directly use the NixOS services, that will take care of the configuration.
+
+```nix
+{ config, pkgs, lib, ... }:
+let
+
+  # Import the Ergo Nix toolkit repository
+  ergo-nix = import (pkgs.fetchFromGitHub {
+    owner = "mmahut";
+    repo = "ergo-nix";
+    rev = "e51e2e43ad617c26205a84453481d3ac152c8fec";
+    sha256 = "1k8fnwcxd90ygfyv3hjc71nqagdz4i2siw6d0k6kcdi0il9mbz5g";
+  }) { inherit pkgs; };
+  
+in {
+
+  # Import the Ergo nix services from the repository above
+  imports = [
+    (ergo-nix + "/nix/nixos")
+  ];
+
+  # Enable the Ergo node service
+  services.ergo-node.enable = true;
+}
+  ```
