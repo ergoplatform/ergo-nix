@@ -1,0 +1,3 @@
+[
+  ./ergo-node.nix
+]
