@@ -1,4 +1,4 @@
-{ pkgs, stdenv, fetchFromGitHub, makeWrapper, nodejs-12_x }:
+{ pkgs, stdenv, fetchFromGitHub, makeWrapper, nodejs-12_x, python3 }:
 
 let
   nix-npm-buildpackage = fetchFromGitHub {
@@ -23,6 +23,7 @@ in buildNpmPackage rec {
   };
 
   nativeBuildInputs = [ makeWrapper ];
+  buildInputs = [ python3 ];
 
   npmBuild = "npm run _flow-remove-types";
 
