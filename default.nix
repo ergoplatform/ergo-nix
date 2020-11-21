@@ -17,6 +17,7 @@ rec {
 
   # Community packages
   ergo-monitoring = callPackage ./nixpkgs/ergo-monitoring {};
+  yoroi-ergo-backend = callPackage ./nixpkgs/yoroi-ergo-backend {};
 
   # Integration tests
   ergo-node-test = nixosTest ./nixos/tests/ergo-node.nix;
