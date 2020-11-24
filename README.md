@@ -55,7 +55,7 @@ If you are using NixOS, you probably know how to add these as your binary caches
 You can add it as a channel.
 
 ```bash
-$ nix-channel --add https://github.com/mmahut/ergo-nix/archive/master.tar.gz ergo-nix
+$ nix-channel --add https://github.com/ergoplatform/ergo-nix/archive/master.tar.gz ergo-nix
 $ nix-channel --update
 unpacking channels...
 ```
@@ -68,8 +68,8 @@ installing 'ergo-node-3.3.6'
 Or you can just use it directly as a Nix path.
 
 ```bash
-$ nix-env -iA ergo-node -f https://github.com/mmahut/ergo-nix/archive/master.tar.gz
-unpacking 'https://github.com/mmahut/ergo-nix/archive/master.tar.gz'...
+$ nix-env -iA ergo-node -f https://github.com/ergoplatform/ergo-nix/archive/master.tar.gz
+unpacking 'https://github.com/ergoplatform/ergo-nix/archive/master.tar.gz'...
 installing 'ergo-node-3.3.6'
 ```
 
@@ -82,21 +82,17 @@ It is also possible to directly use the NixOS services, that will take care of t
 let
 
   # Import the Ergo Nix toolkit repository
-  ergo-nix = import (pkgs.fetchFromGitHub {
-    owner = "mmahut";
-    repo = "ergo-nix";
-    rev = "e51e2e43ad617c26205a84453481d3ac152c8fec";
-    sha256 = "1k8fnwcxd90ygfyv3hjc71nqagdz4i2siw6d0k6kcdi0il9mbz5g";
-  }) {};
-  
+  ergo-nix = builtins.fetchTarball {
+    url = "https://github.com/ergoplatform/ergo-nix/archive/6a5f1da142f6cb292623967b48b43b84d5f8ebff.tar.gz";
+    sha256 = "0dkrzy6hp1b1xd307klgmi02s0g2yqic5jxl1m08vmbg4g86l4x6";
+  };
+
 in {
 
   # Import the Ergo nix services from the repository above
-  imports = [
-    (ergo-nix + "/nix/nixos")
-  ];
+  imports = (import "${ergo-nix}/nixos");
 
   # Enable the Ergo node service
   services.ergo-node.enable = true;
 }
-  ```
+```
