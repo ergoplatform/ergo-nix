@@ -4,12 +4,12 @@ let
   # and not to upstream
   frontend-config = pkgs.writeText "ergo-explorer-frontend-config.js" ''
 var __APP_CONFIG__ = {
-  apiUrl: 'http://ergo-explorer-api:8080/api/v0',
+  apiUrl: 'http://localhost:8080/api/v0',
   alternativeLogo: true,
   environments: [
     {
       name: 'Mainnet local',
-      url: 'http://localhost:3000',
+      url: 'http://localhost:5000',
     },
    ],
 };
@@ -36,7 +36,7 @@ mkYarnPackage rec {
       mkdir -p $out/bin
       cat <<EOF > $out/bin/${pname}
       #!${runtimeShell}
-      exec ${nodePackages.serve}/bin/serve -l 5000 \
+      exec ${nodePackages.serve}/bin/serve -S -l 5000 \
            $out/libexec/blockchain-explorer/node_modules/blockchain-explorer/build/
       EOF
       chmod +x $out/bin/${pname}
