@@ -7,12 +7,8 @@ var __APP_CONFIG__ = {
   apiUrl: 'http://ergo-explorer-api:8080/api/v0',
   alternativeLogo: true,
   environments: [
-     {
-       name: 'Testnet',
-       url: 'http://localhost:3000',
-     },
     {
-      name: 'Mainnet',
+      name: 'Mainnet local',
       url: 'http://localhost:3000',
     },
    ],
