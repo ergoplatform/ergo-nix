@@ -1,4 +1,27 @@
-{ stdenv, runtimeShell, mkYarnPackage, fetchFromGitHub, nodePackages, nodejs-12_x, yarn }:
+{ pkgs, stdenv, runtimeShell, mkYarnPackage, fetchFromGitHub, nodePackages, nodejs-12_x, yarn }:
+let
+  # We assume this package is always used to connect to the local backends
+  # and not to upstream
+  frontend-config = pkgs.writeText "ergo-explorer-frontend-config.js" ''
+var __APP_CONFIG__ = {
+  apiUrl: 'http://ergo-explorer-api:8080/api/v0',
+  alternativeLogo: true,
+  environments: [
+     {
+       name: 'Testnet',
+       url: 'http://localhost:3000',
+     },
+    {
+      name: 'Mainnet',
+      url: 'http://localhost:3000',
+    },
+   ],
+};
+
+if (typeof global !== 'undefined') {
+  global.__APP_CONFIG__ = __APP_CONFIG__;
+}'';
+in
 
 mkYarnPackage rec {
   pname = "ergo-explorer-frontend";
@@ -22,5 +45,10 @@ mkYarnPackage rec {
       EOF
       chmod +x $out/bin/${pname}
   '';
+  postInstall = ''
+    mkdir -p $out/libexec/blockchain-explorer/node_modules/blockchain-explorer/build/config/
+    cp -v ${frontend-config} $out/libexec/blockchain-explorer/node_modules/blockchain-explorer/build/config/app.config.js
+  '';
+
 
 }
