@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation rec {
   pname = "ergo-explorer-backend";
-  version = "4.0.1";
+  version = "5.1.0";
 
   src = fetchurl {
     url = "https://github.com/ergoplatform/explorer-backend/releases/download/${version}/explorer-${version}.tar.gz";
-    sha256 = "0cdkh8ms6gkwy66rm0cjzry8knpm5xgxhhqzqp94a9p72w25k875";
+    sha256 = "1m14ijvk586hz6xp7waxm0h0mh84bh4rnzznp6xamd1zibv7vdxs";
   };
 
   setSourceRoot = "sourceRoot=`pwd`";
@@ -16,10 +16,11 @@ stdenv.mkDerivation rec {
   installPhase = ''
     mkdir -p $out/share/java
     cp -v *.jar $out/share/java/
-    makeWrapper ${jre}/bin/java $out/bin/ergo-chain-grabber --add-flags "-jar $out/share/java/ChainGrabber-assembly-${version}.jar"
-    makeWrapper ${jre}/bin/java $out/bin/ergo-explorer-api --add-flags "-jar $out/share/java/ExplorerApi-assembly-${version}.jar"
-    makeWrapper ${jre}/bin/java $out/bin/ergo-utx-broadcaster --add-flags "-jar $out/share/java/UtxBroadcaster-assembly-${version}.jar"
-    makeWrapper ${jre}/bin/java $out/bin/ergo-utx-tracker --add-flags "-jar $out/share/java/UtxTracker-assembly-${version}.jar"
+    makeWrapper ${jre}/bin/java $out/bin/ergo-chain-grabber --add-flags "-jar $out/share/java/ChainGrabber-${version}.jar"
+    makeWrapper ${jre}/bin/java $out/bin/ergo-explorer-api --add-flags "-jar $out/share/java/ExplorerApi-${version}.jar"
+    makeWrapper ${jre}/bin/java $out/bin/ergo-utx-broadcaster --add-flags "-jar $out/share/java/UtxBroadcaster-${version}.jar"
+    makeWrapper ${jre}/bin/java $out/bin/ergo-utx-tracker --add-flags "-jar $out/share/java/UtxTracker-${version}.jar"
+    makeWrapper ${jre}/bin/java $out/bin/ergo-migrator --add-flags "-jar $out/share/java/Migrator-${version}.jar"
   '';
 
 }
