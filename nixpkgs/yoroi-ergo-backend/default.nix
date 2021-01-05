@@ -13,13 +13,13 @@ let
 in buildNpmPackage rec {
 
   pname = "yoroi-ergo-backend";
-  version = "unstable-20201121";
+  version = "unstable-20201231";
 
   src = fetchFromGitHub {
     owner = "Emurgo";
     repo = "yoroi-ergo-backend";
-    rev = "373c3a1e28becc6739bba244f09c1a1597c2e5c4";
-    sha256 = "1l6jyadghmfsl9wjr5zr814a7baai6pgvws8gjagxnws8vp9ggz7";
+    rev = "e79e357922d6c91f0540228fc78918d21cd24214";
+    sha256 = "16ix362w5jl3qqfz72czqkh7vsd0p9h45l7c6y3bli4bn13ixxgd";
   };
 
   nativeBuildInputs = [ makeWrapper ];
