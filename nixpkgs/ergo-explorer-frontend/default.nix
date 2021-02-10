@@ -26,8 +26,8 @@ mkYarnPackage rec {
   src = fetchFromGitHub {
     owner = "ergoplatform";
     repo = "explorer-frontend";
-    rev = "5cfe75855eb6e1ea22f14380cf9f86e271a430fd";
-    sha256 = "0v0lybs7zd535r5mrmdjwiy13ip5qs6w7zxhbsypqfljhc2iyj4i";
+    rev = "e1dfee2b36d45db31986c0af2d115b7ca7cd55c7";
+    sha256 = "013b54x5gswmnsy7vjr23z7bkqinbgcg5mbc9lsaa67v9pimgvkw";
   };
 
   buildInputs = [ runtimeShell nodejs-12_x yarn nodePackages.serve ];
