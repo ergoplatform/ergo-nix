@@ -18,8 +18,8 @@ in buildNpmPackage rec {
   src = fetchFromGitHub {
     owner = "Emurgo";
     repo = "yoroi-ergo-backend";
-    rev = "e79e357922d6c91f0540228fc78918d21cd24214";
-    sha256 = "16ix362w5jl3qqfz72czqkh7vsd0p9h45l7c6y3bli4bn13ixxgd";
+    rev = "289c6b07165ad403dbd26935d361a24504ac3207";
+    sha256 = "13pv1bn4w7q7gpg3n7wn37k40cc3icfi4ny55kprgxbwf5sfwzxq";
   };
 
   nativeBuildInputs = [ makeWrapper ];
