@@ -21,13 +21,13 @@ in
 
 mkYarnPackage rec {
   pname = "ergo-explorer-frontend";
-  version = "unstable-20201008";
+  version = "unstable-20210116";
 
   src = fetchFromGitHub {
     owner = "ergoplatform";
     repo = "explorer-frontend";
     rev = "e1dfee2b36d45db31986c0af2d115b7ca7cd55c7";
-    sha256 = "013b54x5gswmnsy7vjr23z7bkqinbgcg5mbc9lsaa67v9pimgvkw";
+    sha256 = "fO5X4037GKU0TWzV8thbNuK5zh8iy328tpXrVzopawQ=";
   };
 
   buildInputs = [ runtimeShell nodejs-12_x yarn nodePackages.serve ];
