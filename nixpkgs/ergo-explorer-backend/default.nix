@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation rec {
   pname = "ergo-explorer-backend";
-  version = "7.0.2";
+  version = "9.4.3";
 
   src = fetchurl {
     url = "https://github.com/ergoplatform/explorer-backend/releases/download/${version}/explorer-${version}.tar.gz";
-    sha256 = "Vm/bZWNUH8w9A6S6suahwEgZ1cOtdIKor3VS7ctu3F8=";
+    sha256 = "0i2xny940j5jvdl17c5n493snyj3pp14wi84wphc3zvzfnk8lxcw";
   };
 
   setSourceRoot = "sourceRoot=`pwd`";
