@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation rec {
   pname = "ergo-node";
-  version = "4.0.7";
+  version = "4.0.34";
 
   src = fetchurl {
     url = "https://github.com/ergoplatform/ergo/releases/download/v${version}/ergo-${version}.jar";
-    sha256 = "CDNH7vYLG7Gn22yl+cXtGAD+c8tbNU52FmdxneTM2u4=";
+    sha256 = "00k7fgwzfzc5bj19rnx3dc905wb5nnavwn3bfl956x2kmyhy6p2l";
   };
 
   nativeBuildInputs = [ makeWrapper ];
